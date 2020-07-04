@@ -30,6 +30,7 @@ function clearBoxes() {
   boxesContainerRef.innerHTML = "";
   sizeCount = 20;
   classNumberCount = 0;
+  inputNumberRef.value = null;
 }
 
 function getRandomHEX() {
