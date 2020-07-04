@@ -16,7 +16,6 @@ function createBoxes() {
     sizeCount += 10;
     classNumberCount++;
     const innerBox = document.createElement("div");
-    innerBox.classList.add("innerBox");
     innerBox.classList.add(`innerBox${classNumberCount}`);
     innerBox.style.backgroundColor = getRandomHEX();
     innerBox.style.width = `${sizeCount}px`;
