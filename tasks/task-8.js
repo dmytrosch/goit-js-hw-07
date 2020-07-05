@@ -5,7 +5,7 @@ const boxesContainerRef = document.querySelector("div#boxes");
 
 let countBoxes = 0;
 let sizeCount = 20;
-let classNumberCount = 0;
+const sizeCountStep = 10;
 
 inputNumberRef.addEventListener("input", getAmount);
 createBtnRef.addEventListener("click", createBoxes);
@@ -13,11 +13,9 @@ destroyBtnRef.addEventListener("click", clearBoxes);
 
 function createBoxes() {
   for (let i = 0; i < countBoxes; i++) {
-    sizeCount += 10;
-    classNumberCount++;
+    sizeCount += sizeCountStep;
     const innerBox = document.createElement("div");
-    innerBox.classList.add(`innerBox${classNumberCount}`);
-    innerBox.style.backgroundColor = getRandomHEX();
+    innerBox.style.backgroundColor = getRandomRGB();
     innerBox.style.width = `${sizeCount}px`;
     innerBox.style.height = `${sizeCount}px`;
     boxesContainerRef.append(innerBox);
@@ -28,16 +26,14 @@ function createBoxes() {
 function clearBoxes() {
   boxesContainerRef.innerHTML = "";
   sizeCount = 20;
-  classNumberCount = 0;
-  inputNumberRef.value = null;
 }
 
-function getRandomHEX() {
+function getRandomRGB() {
   const randomNumber = () => Math.round(255.0 * Math.random());
-  const r = randomNumber().toString(16);
-  const g = randomNumber().toString(16);
-  const d = randomNumber().toString(16);
-  const col = `#${r + g + d}`;
+  const r = randomNumber();
+  const g = randomNumber();
+  const b = randomNumber();
+  const col = `rgb(${r}, ${g}, ${b})`;
   return col;
 }
 function getAmount(event) {
