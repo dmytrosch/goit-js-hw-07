@@ -30,6 +30,4 @@ function createCard(image) {
   return liRef.outerHTML
   
 }
-console.log(imagesArr.join(' '));
-
 galleryRef.insertAdjacentHTML('afterbegin', imagesArr.join(' '))
